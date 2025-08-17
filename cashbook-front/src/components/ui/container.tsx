@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, Dimensions } from 'react-native';
+import GradientBackground from './gradientBackground';
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -8,15 +9,16 @@ interface ContainerProps {
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
   margin?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
   centered?: boolean;
-  background?: 'transparent' | 'white' | 'gray' | 'dark' | 'primary';
+  background?: 'transparent' | 'white' | 'gray' | 'dark' | 'navy' | 'cbBlue' | 'primary';
   shadow?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
   rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  gradient?: React.ReactNode;
   border?: boolean;
   fullHeight?: boolean;
   scrollable?: boolean;
 }
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+const { height: screenHeight } = Dimensions.get('window');
 
 const Container: React.FC<ContainerProps> = ({
   children,
@@ -27,49 +29,25 @@ const Container: React.FC<ContainerProps> = ({
   centered = false,
   background = 'transparent',
   shadow = 'none',
+  gradient = null,
   rounded = 'none',
   border = false,
   fullHeight = false,
   scrollable = false,
 }) => {
-  // Padding values
-  const paddingValues = {
-    none: 0,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
-  };
-
-  // Margin values
-  const marginValues = {
-    none: 0,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
-  };
-
-  // Background colors
+  const paddingValues = { none: 0, sm: 8, md: 16, lg: 24, xl: 32 };
+  const marginValues = { none: 0, sm: 8, md: 16, lg: 24, xl: 32 };
   const backgroundColors = {
     transparent: 'transparent',
     white: '#ffffff',
-    gray: '#f9fafb',
-    dark: '#111827',
+    gray: '#BABABA',
+    dark: '#373643',
+    navy: '#122c6f',
+    cbBlue: '#3533cd',
     primary: '#e0f2fe',
   };
+  const borderRadiusValues = { none: 0, sm: 4, md: 8, lg: 12, xl: 16, full: 999 };
 
-  // Border radius values
-  const borderRadiusValues = {
-    none: 0,
-    sm: 4,
-    md: 8,
-    lg: 12,
-    xl: 16,
-    full: 999,
-  };
-
-  // Shadow styles
   const shadowStyles = {
     none: {},
     sm: { elevation: 1, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.05, shadowRadius: 2 },
@@ -78,12 +56,12 @@ const Container: React.FC<ContainerProps> = ({
     xl: { elevation: 12, shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.2, shadowRadius: 16 },
   };
 
-  // Create the container style
-  const containerStyle = [
+  const baseStyle = [
     {
       width: '100%',
       padding: paddingValues[padding],
       margin: marginValues[margin],
+      zIndex: 1,
       backgroundColor: backgroundColors[background],
       borderRadius: borderRadiusValues[rounded],
       ...(fullHeight && { minHeight: screenHeight }),
@@ -96,10 +74,18 @@ const Container: React.FC<ContainerProps> = ({
 
   const ContainerComponent = scrollable ? ScrollView : View;
 
-  return (
-    <ContainerComponent style={containerStyle}>
+  const content = (
+    <ContainerComponent style={baseStyle}>
       {children}
     </ContainerComponent>
+  );
+
+  return (
+    <>
+      {gradient}
+      {content}
+      
+    </>
   );
 };
 

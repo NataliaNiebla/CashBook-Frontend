@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import Card1 from '../../components/common/cards/card1';
 import Card2 from '../../components/common/cards/card2';
 import Header from '../../components/common/headings/header';
-import MainContainer from '../../components/common/mainContainer';
+import MainContainer from '../../components/common/containers/mainContainer';
 import PieChartCard2 from '../../components/common/charts/pieChartCard2';
 import customBudgetData from './customChartDashboard';
 import Header2 from '../../components/common/headings/header2';

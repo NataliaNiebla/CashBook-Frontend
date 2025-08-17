@@ -68,28 +68,6 @@ export default function DrawerNavigator() {
         }}
       />
       <Drawer.Screen 
-        name="Reports" 
-        component={ProfileScreen} // Temporal, luego crear ReportsScreen
-        options={{
-          title: 'Reportes',
-          drawerLabel: 'Reportes',
-          drawerIcon: ({ color, size }) => (
-            <Ionicons name="document-text-outline" size={size} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen 
-        name="Categories" 
-        component={ProfileScreen} // Temporal, luego crear CategoriesScreen
-        options={{
-          title: 'Categorías',
-          drawerLabel: 'Categorías',
-          drawerIcon: ({ color, size }) => (
-            <Ionicons name="pricetags-outline" size={size} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen 
         name="Settings" 
         component={SettingsScreen}
         options={{

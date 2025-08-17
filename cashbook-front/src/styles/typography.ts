@@ -26,7 +26,7 @@ export const fontSizes = {
   md: 16,
   lg: 22,
   xl: 26,
-  '2xl': 30,
+  '2xl': 65,
 };
 
 export const lineHeights = {
@@ -35,5 +35,5 @@ export const lineHeights = {
   md: 24,
   lg: 28,
   xl: 32,
-  '2xl': 36,
+  '2xl': 55,
 };

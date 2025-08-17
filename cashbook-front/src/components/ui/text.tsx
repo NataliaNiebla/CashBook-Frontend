@@ -5,7 +5,7 @@ import { fonts, fontSizes, fontWeights, lineHeights } from '../../styles/typogra
 interface TextProps {
   children: React.ReactNode;
   size?: 'xs' | 'sm' | 'smButton' | 'md' | 'lg' | 'xl' | '2xl';
-  type?: 'blackText' | 'whiteText' |'grayText' | 'navyBlueText';
+  type?: 'blackText' | 'whiteText' |'grayText' | 'navyBlueText' | 'cbBlueText';
   align?: 'left' | 'center' | 'right';
   className?: string;
   style?: TextStyle;
@@ -50,10 +50,13 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   grayText: {
-    color: '#6b7280',
+    color: '#BABABA',
   },
   navyBlueText: {
     color: '#122c6f',
+  },
+  cbBlueText: {
+    color: '#3533cd',
   },
 
   // Font sizes with associated weights
@@ -75,7 +78,7 @@ const styles = StyleSheet.create({
   md: {
     fontSize: fontSizes.md,
     lineHeight: lineHeights.md,
-    fontFamily: fonts.bold,
+    fontFamily: fonts.semiBold,
   },
   lg: {
     fontSize: fontSizes.lg,

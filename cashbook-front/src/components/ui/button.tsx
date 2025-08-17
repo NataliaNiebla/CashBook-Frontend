@@ -5,7 +5,7 @@ interface ButtonProps {
   children: React.ReactNode;
   size?: 'sm' | 'md' | 'lg';
   variant?: 'solid' | 'outlined' | 'link';
-  action?: 'primary' | 'secondary' | 'positive' | 'negative';
+  action?: 'primary' | 'secondary' | 'tertiary' | 'positive' | 'negative';
   className?: string;
   style?: ViewStyle;
   color?: string;
@@ -33,6 +33,7 @@ export function Button({
     const actionColors = {
       primary: '#122c6f',
       secondary: '#a6a6a6', 
+      tertiary: '#ffffffff',
       positive: '#4ecd7fff',
       negative: '#d7515fff'
     };
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 9,
   },
   lg: {
-    paddingVertical: 6,
+    paddingVertical: 20,
     paddingHorizontal: 9,
   },
   

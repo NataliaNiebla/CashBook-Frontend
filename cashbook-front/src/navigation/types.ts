@@ -15,7 +15,16 @@ export type BottomTabParamList = {
   Budget: undefined;
 };
 
+export type AuthStackParamList = {
+  FirstScreen: undefined;
+  Login: undefined;
+  SignUp: undefined;
+  ForgetPass: undefined;
+};
+
 export type RootStackParamList = {
+  Auth: undefined;
+  Dashboard: undefined;
   Drawer: undefined;
   TransactionDetail: { transactionId: string };
   EditTransaction: { transactionId: string };

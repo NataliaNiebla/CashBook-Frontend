@@ -1,4 +1,4 @@
-import Container from "../ui/container";
+import Container from "../../ui/container";
 import React from "react";
 
 interface MainContainerProps {
@@ -11,7 +11,7 @@ function MainContainer({ children, style }: MainContainerProps) {
     <Container 
       maxWidth="screen" 
       padding="md" 
-      background="gray" 
+      background= "white"
       fullHeight 
       scrollable
       style={style}

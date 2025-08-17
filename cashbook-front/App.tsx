@@ -6,8 +6,9 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-gesture-handler';
 import { useCustomFonts } from './src/hooks/useCustomFonts';
 import { Text } from 'react-native';
+import { AuthProvider } from './src/contexts/AuthContext';
 
-import DrawerNavigator from './src/navigation/DrawerNavigator';
+import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
   const fontsLoaded = useCustomFonts();
@@ -17,11 +18,13 @@ export default function App() {
   }
 
   return (
-    <GluestackUIProvider mode="light">
-      <NavigationContainer>
-        <DrawerNavigator />
-        <StatusBar style="light" />
-      </NavigationContainer>
-    </GluestackUIProvider>
+    <AuthProvider>
+      <GluestackUIProvider mode="light">
+        <NavigationContainer>
+          <AppNavigator />
+          <StatusBar style="light" />
+        </NavigationContainer>
+      </GluestackUIProvider>
+    </AuthProvider>
   );
 }
